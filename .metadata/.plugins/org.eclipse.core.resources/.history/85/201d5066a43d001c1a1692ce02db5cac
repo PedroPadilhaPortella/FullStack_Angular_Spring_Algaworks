@@ -1,0 +1,16 @@
+package com.example.algamoney.api.resources;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.algamoney.api.repository.IPessoaRepository;
+
+@RestController
+@RequestMapping("/pessoas")
+public class PessoaResource {
+	
+	@Autowired
+	private IPessoaRepository pessoaRepository;
+
+}
