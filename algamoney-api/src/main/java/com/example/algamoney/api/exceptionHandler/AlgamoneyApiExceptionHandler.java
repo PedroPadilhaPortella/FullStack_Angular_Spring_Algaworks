@@ -30,7 +30,7 @@ public class AlgamoneyApiExceptionHandler extends ResponseEntityExceptionHandler
 			HttpHeaders headers, HttpStatus status, WebRequest request)
 	{
 		String messageUser = messageSource.getMessage("mensagem.invalida", null, LocaleContextHolder.getLocale());
-		String messageDev = ex.getCause().toString();
+		String messageDev = ex.getCause() != null ? ex.getCause().toString() : ex.toString();
 		List<Erro> erros = Arrays.asList(new Erro(messageUser, messageDev));
 		return handleExceptionInternal(ex, erros, headers, HttpStatus.BAD_REQUEST, request);
 	}
@@ -50,6 +50,7 @@ public class AlgamoneyApiExceptionHandler extends ResponseEntityExceptionHandler
 		List<Erro> erros = Arrays.asList(new Erro(messageUser, messageDev));
 		return handleExceptionInternal(ex, erros, new HttpHeaders(), HttpStatus.NOT_FOUND, request);
 	}
+	
 	
 	private List<Erro> checkErrors(BindingResult bindingResults) {
 		List<Erro> erros = new ArrayList<Erro>();
