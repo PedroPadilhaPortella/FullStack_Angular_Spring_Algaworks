@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.algamoney.api.event.ResourceCreateEvent;
 import com.example.algamoney.api.model.Pessoa;
-import com.example.algamoney.api.repository.IPessoaRepository;
+import com.example.algamoney.api.repository.PessoaRepository;
 import com.example.algamoney.api.service.PessoaService;
 
 @RestController
@@ -30,7 +30,7 @@ import com.example.algamoney.api.service.PessoaService;
 public class PessoaResource {
 	
 	@Autowired
-	private IPessoaRepository pessoaRepository;
+	private PessoaRepository pessoaRepository;
 	
 	@Autowired
 	private PessoaService pessoaService;

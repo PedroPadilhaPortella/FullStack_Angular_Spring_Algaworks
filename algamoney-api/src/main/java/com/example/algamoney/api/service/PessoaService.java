@@ -6,13 +6,13 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
 import com.example.algamoney.api.model.Pessoa;
-import com.example.algamoney.api.repository.IPessoaRepository;
+import com.example.algamoney.api.repository.PessoaRepository;
 
 @Service
 public class PessoaService {
 	
 	@Autowired
-	private IPessoaRepository pessoaRepository;
+	private PessoaRepository pessoaRepository;
 	
 	public Pessoa updatePessoa(Long id, Pessoa pessoa) {
 		Pessoa pessoaDB = getPessoaById(id);
@@ -27,7 +27,7 @@ public class PessoaService {
 		pessoaRepository.save(pessoaDB);
 	}
 	
-	private Pessoa getPessoaById(Long id) {
+	public Pessoa getPessoaById(Long id) {
 		Pessoa pessoaDB = pessoaRepository.findById(id).orElseThrow(() -> new EmptyResultDataAccessException(1));
 		return pessoaDB;
 	}

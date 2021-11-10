@@ -19,14 +19,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.algamoney.api.event.ResourceCreateEvent;
 import com.example.algamoney.api.model.Categoria;
-import com.example.algamoney.api.repository.ICategoriaRepository;
+import com.example.algamoney.api.repository.CategoriaRepository;
 
 @RestController
 @RequestMapping("/categorias")
 public class CategoriaResource {
 	
 	@Autowired
-	private ICategoriaRepository categoriaRepository;
+	private CategoriaRepository categoriaRepository;
 	
 	@Autowired
 	private ApplicationEventPublisher publisher;	
